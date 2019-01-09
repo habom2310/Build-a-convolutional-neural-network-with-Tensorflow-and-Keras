@@ -21,8 +21,7 @@ This is a tutorial for building a CNN with tensorflow and keras. The model will 
 ├───Prediction_tf_pb.py
 ├───train.py
 ```
- - Link for the train data https://drive.google.com/open?id=1PbX-2fRDKEewqMhG-E17VLY3DQh2-42V
-
+ - Link for the train data https://drive.google.com/open?id=1ls1J-F21J-Vzi9ZcgUL-_4QPhfoIdzBL
 # Implementation
 - Train the model
 > `python train.py --dataset train_data --model model.model --label-bin bin --plot plot`
