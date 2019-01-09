@@ -30,7 +30,7 @@ ap.add_argument("-p", "--plot", required=True,
     help="path to output accuracy/loss plot")
 args = vars(ap.parse_args())
 
-num_classes = 30
+num_classes = 10
 
 # initialize the data and labels
 print("[INFO] loading images...")
@@ -113,6 +113,7 @@ model.compile(optimizer = opt, loss = 'categorical_crossentropy', metrics = ['ac
 # Part 2 - Fitting the CNN to the images
 H = model.fit(trainX, trainY, validation_data=(testX, testY), epochs=EPOCHS, batch_size=32)
 
+# save the model
 model.save(args["model"])
 # evaluate the network
 print("[INFO] evaluating network...")
@@ -134,26 +135,9 @@ plt.ylabel("Loss/Accuracy")
 plt.legend()
 plt.savefig(args["plot"])
 
-# save the model and label binarizer to disk
+# save label binarizer to disk
 print("[INFO] serializing network and label binarizer...")
 
 f = open(args["label_bin"], "wb")
 f.write(pickle.dumps(lb))
 f.close()
-              
-    
-# # Part 3 - Making new predictions
-# import numpy as np
-# from keras.preprocessing import image
-# test_image = image.load_img('dataset/single_prediction/cat_or_dog_1.jpg', target_size = (32, 32))
-# test_image = image.img_to_array(test_image)
-# test_image = np.expand_dims(test_image, axis = 0)
-# result = classifier.predict(test_image)
-# training_set.class_indices
-# if result[0][0] == 1:
-# prediction = 'dog'
-# else:
-# prediction = 'cat'
-
-
-
