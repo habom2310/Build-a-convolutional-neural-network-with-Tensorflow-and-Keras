@@ -17,14 +17,11 @@ This is a tutorial for building a CNN with tensorflow and keras. The model will 
 │   ├───7
 │   ├───8
 │   ├───9
-│   ├───A
-│   ├───C
-│   ├───E
-│   ├───F
 ├───Convert_keras_to_tf.py
 ├───Prediction_tf_pb.py
 ├───train.py
 ```
+ - Link for the train_image https://drive.google.com/open?id=1PbX-2fRDKEewqMhG-E17VLY3DQh2-42V
 
 # Implementation
 - Train the model
