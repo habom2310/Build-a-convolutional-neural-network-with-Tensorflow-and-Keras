@@ -1,9 +1,17 @@
 from keras import backend as K
 import tensorflow as tf
 from keras.models import load_model
+import argparse
+
+ap = argparse.ArgumentParser()
+ap.add_argument("-d", "--keras_model", required=True,
+    help="path to input keras model")
+ap.add_argument("-m", "--tf_model", required=True,
+    help="path to output tf model")
+args = vars(ap.parse_args())
 
 K.set_learning_phase(0)
-model = load_model('model.model')
+model = load_model(args["keras_model"])
 
 print(model.outputs)
 print(model.inputs)
@@ -42,4 +50,4 @@ def freeze_session(session, keep_var_names=None, output_names=None, clear_device
 frozen_graph = freeze_session(K.get_session(),
                               output_names=[out.op.name for out in model.outputs])
                               
-tf.train.write_graph(frozen_graph, "model", "tf_model.pb", as_text=False)
+tf.train.write_graph(frozen_graph, "model", args["tf_model"], as_text=False)
