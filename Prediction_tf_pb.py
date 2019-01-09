@@ -1,3 +1,4 @@
+# This prediction is just to make sure the .pb model works perfectly 
 import tensorflow as tf
 from tensorflow.python.platform import gfile
 import cv2
@@ -5,6 +6,7 @@ import numpy as np
 import time
 import glob
 
+#change the number to check in the other folders
 files = glob.glob("binary_train_data/6/*.jpg")
 print(files)
 #LOAD LABLES
